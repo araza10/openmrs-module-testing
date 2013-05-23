@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+
+	<!-- Module Properties -->
+	<id>OpenMRSSMSModule</id>
+	<name>OpenMRSSMSModule Module</name>
+	<version>1.0</version>
+	<package>org.openmrs.module.OpenMRSSMSModule</package>
+	<author>Ali Raza</author>
+	<description>
+		Module for sending sms messages through openmrs
+	</description>
+	<updateURL>https://modules.openmrs.org/modules/download/OpenMRSSMSModule/update.rdf</updateURL>
+	<require_version>1.9.3</require_version>
+	<!-- / Module Properties -->
+
+	
+	<!-- Module Activator -->
+	<activator>org.openmrs.module.OpenMRSSMSModule.OpenMRSSMSModuleActivator</activator>
+	
+	
+	<!-- Adds link to admin page -->
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>org.openmrs.module.OpenMRSSMSModule.extension.html.AdminList</class>
+	</extension>
+	
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+				
+		
+				
+	</mappingFiles>
+	<packagesWithMappedClasses>
+		org.openmrs.module.OpenMRSSMSModule
+	</packagesWithMappedClasses>
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with OpenMRSSMSModule. -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+	
+	<Servlets>
+	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> 
+	<servlet>
+		<servlet-name>formDownload</servlet-name>
+		<servlet-class>@MODULE_PACKAGE@.web.FormDownloadServlet</servlet-class>
+	</servlet>
+	-->
+	<servlet>
+		<servlet-name>smsTarseel</servlet-name>
+		<servlet-class>org.irdresearch.smstarseel.SmsTarseel</servlet-class>
+	</servlet>
+		
+	</Servlets>
+	
+ 	<dwr>
+        <allow>
+		<convert converter="enum" match="org.openmrs.module.OpenMRSSMSModule.OutboundMessage$OutboundStatus">
+		</convert>
+		<convert converter="bean" match="org.irdresearch.dwr.web.PatientGridRow">
+			<param name="include" value="patientId,gender,givenName,mobileNumber"></param>
+		</convert>
+		<convert converter="bean" match="org.irdresearch.dwr.web.PatientText">
+		    <param name="include" value="text"></param>
+		</convert>
+		<convert converter="bean" match="org.openmrs.module.OpenMRSSMSModule.OutboundMessage">
+			<param name="include" value="text,originator,recipient,patient_id,status"></param>
+		</convert> 
+
+			<create creator="new" javascript="DWRMRSPatientService">
+                <param name="class" value="org.irdresearch.dwr.web.DWRMRSPatientService"/>
+                <include method="getSearchParameter"/>
+            </create>
+
+			<create creator="new" javascript="DWRMRSPatientTypeService">
+                <param name="class" value="org.irdresearch.dwr.web.DWRMRSPatientTypeService"/>
+                <include method="getPatientType"/>
+				<include method="patIdentifierSearch"/>
+            </create>
+
+			<create creator="new" javascript="DWRMRSReportTypeService">
+                <param name="class" value="org.irdresearch.dwr.web.DWRMRSReportTypeService"/>
+                <include method="getMessageByName"/>
+				
+            </create>
+        </allow>
+ 
+        <signatures>
+            <![CDATA[
+            import org.irdresearch.dwr.web.DWRMRSPatientService;
+			import org.irdresearch.dwr.web.DWRMRSReportTypeService;
+            DWRMRSPatientService.getSearchParameter(String patientName);
+            DWRMRSPatientTypeService.getPatientType(String patientType);
+            DWRMRSReportTypeService.getMessageByName(String patientID);
+            DWRMRSPatientTypeService.patIdentifierSearch(String pid);
+           
+            ]]>
+        </signatures>
+    </dwr> 
+
+</module>
+
