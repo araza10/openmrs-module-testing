@@ -33,17 +33,43 @@ function getMessageTypeDWR()
 		 
 	 }
 }
+ /* DWRUserService.isIdMapperExists(programId, {
+     async: false,
+     callback: function (res2) {
+             if(res2){
+                     alert('Another child have been enrolled with same ID '+programId);
+                     return;
+             }
+             
+             submitThisForm();
+}}); */
+
+
+
  function getPatientSearch()
  {
  	var pid = document.getElementById("patientid").value;
  	
- 	DWRMRSPatientTypeService.patIdentifierSearch(pid, retunob);
- }
- 
- function retunob(wat){
-	 alert(wat);
+ 	DWRMRSPatientTypeService.patIdentifierSearch(pid,{ async: false,
+ 	     callback: retunob});
+ 	
  }
 
+ 
+   function retunob(watt){
+	  // alert(watt+" watt value");
+	   
+	 if(watt==false)
+		 {
+			document.getElementById("diy").value=watt;
+		 			
+		 }
+	 else
+		 {
+		 document.getElementById("diy").value=watt;
+		 }
+		
+ }  
 /*    var cellFunctions =
        [
          function(patients) { return patients.patientId; },
@@ -174,6 +200,12 @@ function clearDiv() {
 function sendSMSs() {
 	var msg=document.getElementById("txtMsg").value;
 	getPatientSearch();
+	var pss=document.getElementById("diy").value;
+	alert(pss+" pss");
+	if(pss=='false'){
+	alert("This Patient identifier does not exist!");
+	return;
+	}
 	
 	//var hrs=document.getElementById("txbdueHours").value;
 	//var descr=document.getElementById("txtDescr").value;
@@ -282,7 +314,9 @@ function showError(errormsg) {
 			<input type="button" value="SEND" style="width: 30mm; height: 10mm;"
 						onclick="sendSMSs();"/>
 				</div>
+				
 			</td>
+			<td><input type="hidden" id="diy"/></td>
 			
 			
 			
@@ -302,6 +336,7 @@ function showError(errormsg) {
 		</div> 
 				
 			</td>
+			
 			
 		</tr>
 		  
