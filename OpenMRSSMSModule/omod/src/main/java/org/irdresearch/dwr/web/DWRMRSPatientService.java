@@ -29,11 +29,12 @@ public class DWRMRSPatientService {
 		List<PatientGridRow> patientgrList = null;
 		List<Patient> patientList = null;
 		
+		
 		 try{
 			 System.out.println("Patient Name= "+patientName);
 		//Context.openSession();
-			 patientgrList = new  ArrayList<PatientGridRow>();
-			 patientList = new  ArrayList<Patient>();
+			 /*patientgrList = new  ArrayList<PatientGridRow>();
+			 patientList = new  ArrayList<Patient>();*/
 			 
 			PatientService service	= Context.getPatientService();
 			patientList=service.getPatients(patientName);
@@ -47,9 +48,14 @@ public class DWRMRSPatientService {
 				e.printStackTrace();
 				}
 			 for (Patient patient : patientList) {
+				 	patientgrList = new  ArrayList<PatientGridRow>();
 				 	PatientGridRow pg = new PatientGridRow();
 				 	PatientIdentifier pidentifier = patient.getPatientIdentifier(); 
 					PersonAttribute perattribute=patient.getAttribute("Mobile Number");
+					if(perattribute==null)
+					{
+						return new ArrayList<PatientGridRow>();
+					}
 					pg.setMobileNumber(perattribute.getValue());
 					pg.setPatientId(pidentifier.getIdentifier());
 					pg.setGender(patient.getGender());

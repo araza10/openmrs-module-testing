@@ -33,13 +33,24 @@ function callingdwe()
 {
 	var patientsearch = document.getElementById("patientid_id").value;
 	alert(patientsearch);
-	DWRMRSPatientService.getSearchParameter(patientsearch,results);
+	DWRMRSPatientService.getSearchParameter(patientsearch,{ async: false,
+	     callback: results});
 	
 }
 	 function results(patients)
 	 {
+		 alert(patients+" res");
+		 if(patients==null)
+			 {
+			 	alert("Patient not registered!");
+			 	
+			 }
+		
+		 else{
+			 alert(patients.error+""+patients.patientId+" Sita..");
 		 dwr.util.removeAllRows("tbod");
 		 dwr.util.addRows("tbod",patients,cellFunctions);
+		 }
 	 }
 	 
 	    var cellFunctions =
