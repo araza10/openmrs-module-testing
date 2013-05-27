@@ -33,13 +33,13 @@ function callingdwe()
 {
 	var patientsearch = document.getElementById("patientid_id").value;
 	alert(patientsearch);
-	DWRMRSPatientService.getSearchParameter(patientsearch,{ async: false,
-	     callback: results});
+	DWRMRSPatientService.getSearchParameter(patientsearch, { async: false,
+	     callback:results});
 	
 }
 	 function results(patients)
 	 {
-		 alert(patients+" res");
+		//alert(JSON.stringify(patients));
 		 if(patients==null)
 			 {
 			 	alert("Patient not registered!");
@@ -47,9 +47,10 @@ function callingdwe()
 			 }
 		
 		 else{
-			 alert(patients.error+""+patients.patientId+" Sita..");
+			alert(patients[0].error);
+			
 		 dwr.util.removeAllRows("tbod");
-		 dwr.util.addRows("tbod",patients,cellFunctions);
+		 dwr.util.addRows("tbod",patients,cellFunctions); 
 		 }
 	 }
 	 
@@ -59,6 +60,7 @@ function callingdwe()
 	          function(patients) { return patients.gender; },
 	          function(patients) { return patients.givenName; },
 	          function(patients) { return patients.mobileNumber; },
+	          function(patients) { return patients.error; },
 	          
 	        ];
 	 

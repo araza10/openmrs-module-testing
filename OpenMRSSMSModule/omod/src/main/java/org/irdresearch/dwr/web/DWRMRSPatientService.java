@@ -54,7 +54,9 @@ public class DWRMRSPatientService {
 					PersonAttribute perattribute=patient.getAttribute("Mobile Number");
 					if(perattribute==null)
 					{
-						return new ArrayList<PatientGridRow>();
+						pg.setError("Person Attribute 'Mobile Number' not registered for this patient!");
+						patientgrList.add(pg);
+						return patientgrList;
 					}
 					pg.setMobileNumber(perattribute.getValue());
 					pg.setPatientId(pidentifier.getIdentifier());

@@ -6,7 +6,7 @@ public class PatientGridRow {
 	private String gender;
 	private String givenName;
 	private String mobileNumber;
-	private String error="This Patient's Attribute Type 'Mobile Number' does not exist";
+	private String error;
 
 
 	public String getError() {

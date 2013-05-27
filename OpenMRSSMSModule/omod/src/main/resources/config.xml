@@ -71,7 +71,7 @@
 		<convert converter="enum" match="org.openmrs.module.OpenMRSSMSModule.OutboundMessage$OutboundStatus">
 		</convert>
 		<convert converter="bean" match="org.irdresearch.dwr.web.PatientGridRow">
-			<param name="include" value="patientId,gender,givenName,mobileNumber"></param>
+			<param name="include" value="patientId,gender,givenName,mobileNumber,error"></param>
 		</convert>
 		<convert converter="bean" match="org.irdresearch.dwr.web.PatientText">
 		    <param name="include" value="text"></param>
