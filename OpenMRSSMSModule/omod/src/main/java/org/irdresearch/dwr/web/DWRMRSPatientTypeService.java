@@ -7,7 +7,7 @@ import org.openmrs.PatientIdentifier;
 import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.OpenMRSSMSModule.Reminder;
-import org.openmrs.module.OpenMRSSMSModule.api.reminderService;
+import org.openmrs.module.OpenMRSSMSModule.api.ReminderService;
 
 public class DWRMRSPatientTypeService {
 	
@@ -22,7 +22,7 @@ public class DWRMRSPatientTypeService {
 			
 			
 			patientgrList = new  ArrayList<PatientText>();
-			reminderService rs = Context.getService(reminderService.class);
+			ReminderService rs = Context.getService(ReminderService.class);
 			if(patientType.equalsIgnoreCase("tb")){
 			rm = rs.getReminder("SMS_TB");
 			patientText = rm.getText();}

@@ -24,14 +24,14 @@
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.OpenMRSSMSModule.api.smsmoduleService</value>
+				<value>org.openmrs.module.OpenMRSSMSModule.api.SmsModuleService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.smsmoduleServiceImpl">
+						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.SmsModuleServiceImpl">
 							<property name="daooutbound">
 								<bean class="org.openmrs.module.OpenMRSSMSModule.api.db.hibernate.DAOOutboundMessageImpl">
 									<property name="sessionFactory">
@@ -93,14 +93,14 @@
 				<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.OpenMRSSMSModule.api.reminderService</value>
+				<value>org.openmrs.module.OpenMRSSMSModule.api.ReminderService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.reminderServiceImplementation">
+						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.ReminderServiceImplementation">
 							<property name="r">
 								<bean class="org.openmrs.module.OpenMRSSMSModule.api.db.hibernate.DAOReminderImplementation">
 									<property name="sessionFactory">
@@ -125,14 +125,14 @@
 				<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.OpenMRSSMSModule.api.deviceService</value>
+				<value>org.openmrs.module.OpenMRSSMSModule.api.DeviceService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.deviceServiceImpl">
+						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.DeviceServiceImpl">
 							<property name="daodevice">
 								<bean class="org.openmrs.module.OpenMRSSMSModule.api.db.hibernate.DAODeviceImpl">
 									<property name="sessionFactory">

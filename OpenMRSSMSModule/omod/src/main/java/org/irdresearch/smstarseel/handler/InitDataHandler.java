@@ -10,7 +10,7 @@ import org.irdresearch.smstarseel.SmsTarseelUtil;
 import org.irdresearch.smstarseel.context.TarseelServices;*/
 import org.openmrs.api.context.Context;
 import org.openmrs.module.OpenMRSSMSModule.Project;
-import org.openmrs.module.OpenMRSSMSModule.api.deviceService;
+import org.openmrs.module.OpenMRSSMSModule.api.DeviceService;
 import org.openmrs.module.OpenMRSSMSModule.api.impl.RequestParam.ProjectParams;
 import org.openmrs.module.OpenMRSSMSModule.api.impl.RequestParam.ResponseCode;
 import org.openmrs.module.OpenMRSSMSModule.api.impl.RequestParam.ResponseMessage;
@@ -24,7 +24,7 @@ public class InitDataHandler {
 	public static void getProjectList(JSONObject request, HttpServletResponse resp) throws JSONException, IOException 
 	{
 		//TarseelServices sc = TarseelContext.getServices();
-		deviceService sc=Context.getService(deviceService.class);
+		DeviceService sc=Context.getService(DeviceService.class);
 		JSONArray prjList = new JSONArray();
 
 		try

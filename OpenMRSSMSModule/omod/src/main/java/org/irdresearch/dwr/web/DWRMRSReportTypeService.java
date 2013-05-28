@@ -5,7 +5,7 @@ import java.util.List;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.OpenMRSSMSModule.InboundMessage;
 import org.openmrs.module.OpenMRSSMSModule.OutboundMessage;
-import org.openmrs.module.OpenMRSSMSModule.api.smsmoduleService;
+import org.openmrs.module.OpenMRSSMSModule.api.SmsModuleService;
 import org.springframework.beans.support.PagedListHolder;
 public class DWRMRSReportTypeService {
 
@@ -20,7 +20,7 @@ public class DWRMRSReportTypeService {
 		
 		patientList = new  ArrayList<OutboundMessage>();
 		
-		smsmoduleService smsService = Context.getService(smsmoduleService.class);
+		SmsModuleService smsService = Context.getService(SmsModuleService.class);
 		patientList = smsService.findByPatientID(patientID);
 		}
 		catch (Exception e) {

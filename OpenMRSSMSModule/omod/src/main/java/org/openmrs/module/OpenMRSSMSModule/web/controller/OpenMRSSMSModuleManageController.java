@@ -19,7 +19,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.OpenMRSSMSModule.OutboundMessage.Priority;
-import org.openmrs.module.OpenMRSSMSModule.api.smsmoduleService;
+import org.openmrs.module.OpenMRSSMSModule.api.SmsModuleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +46,7 @@ public class  OpenMRSSMSModuleManageController {
 		int validityPeriod=4;
 		try{
 			
-		smsmoduleService smsservice=Context.getService(smsmoduleService.class);
+		SmsModuleService smsservice=Context.getService(SmsModuleService.class);
 		
 		
 		for (String recipient : m) {

@@ -11,7 +11,7 @@ import org.apache.derby.tools.sysinfo;
 import org.h2.java.lang.System;
 
 import org.irdresearch.smstarseel.SmsTarseelUtil;
-import org.openmrs.module.OpenMRSSMSModule.api.deviceService;
+import org.openmrs.module.OpenMRSSMSModule.api.DeviceService;
 import org.openmrs.module.OpenMRSSMSModule.api.impl.ActiveDevice;
 /*import org.irdresearch.smstarseel.context.LoggedInUser;
 import org.irdresearch.smstarseel.context.SystemPermissions;
@@ -36,7 +36,7 @@ import org.json.JSONObject;
 import org.irdresearch.smstarseel.DateUtils;
 import org.openmrs.User;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.OpenMRSSMSModule.api.impl.deviceServiceImpl;
+import org.openmrs.module.OpenMRSSMSModule.api.impl.DeviceServiceImpl;
 
 public class LoginHandler {
 
@@ -127,7 +127,7 @@ public class LoginHandler {
 		
 		Project prj = null;
 	//	TarseelServices sc = TarseelContext.getServices();
-		deviceService ds =Context.getService(deviceService.class);
+		DeviceService ds =Context.getService(DeviceService.class);
 		try{
 			String message = "";
 			
@@ -158,7 +158,7 @@ public class LoginHandler {
 			message += "\nProject : " + project;
 			
 			//TarseelContext.ACTIVE_DEVICES.put(imei, new ActiveDevice(imei));
-			deviceServiceImpl.ACTIVE_DEVICES.put(imei, new ActiveDevice(imei));
+			DeviceServiceImpl.ACTIVE_DEVICES.put(imei, new ActiveDevice(imei));
 			SmsTarseelResponse json = new SmsTarseelResponse(ResponseCode.SUCCESS, ResponseMessage.SUCCESS,"");
 			json.addElement("details", message);
 			

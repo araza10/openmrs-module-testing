@@ -11,7 +11,7 @@ import org.irdresearch.smstarseel.context.TarseelServices;*/
 import org.openmrs.api.context.Context;
 import org.openmrs.module.OpenMRSSMSModule.Device;
 import org.openmrs.module.OpenMRSSMSModule.Device.DeviceStatus;
-import org.openmrs.module.OpenMRSSMSModule.api.deviceService;
+import org.openmrs.module.OpenMRSSMSModule.api.DeviceService;
 import org.irdresearch.smstarseel.DateUtils;
 import org.irdresearch.smstarseel.DateUtils.TIME_INTERVAL;
 import org.slf4j.Logger;
@@ -41,7 +41,7 @@ public class SmsTarseelUtil {
 		Device prjRegDev = null;
 		StringBuffer errormsg = new StringBuffer("Error while finding device.\n");
 		//TarseelServices sc = TarseelContext.getServices();
-		deviceService dsc=Context.getService(deviceService.class);
+		DeviceService dsc=Context.getService(DeviceService.class);
 		try{
 			//prjRegDev = sc.getDeviceService().findDevice(imei, DeviceStatus.ACTIVE, false, projectName, sim).get(0);
 			prjRegDev = dsc.findDevice(imei, DeviceStatus.ACTIVE, false, projectName, sim).get(0);

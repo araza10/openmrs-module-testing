@@ -21,7 +21,7 @@ import org.irdresearch.smstarseel.SmsTarseelUtil;
 import org.irdresearch.smstarseel.TarseelWebGlobals;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.OpenMRSSMSModule.api.GeneralService;
-import org.openmrs.module.OpenMRSSMSModule.api.smsmoduleService;
+import org.openmrs.module.OpenMRSSMSModule.api.SmsModuleService;
 import org.openmrs.module.OpenMRSSMSModule.api.impl.ActiveDevice;
 /*import org.irdresearch.smstarseel.context.TarseelContext;
 import org.irdresearch.smstarseel.context.TarseelGlobals;
@@ -57,7 +57,7 @@ private static Date lastSmsFetchedErrorEmailDate = new Date(120000000000L);
 
 public static synchronized void revertUnknownSmses(String response){
 	//TarseelServices sc = TarseelContext.getServices();
-	smsmoduleService smsc=Context.getService(smsmoduleService.class);
+	SmsModuleService smsc=Context.getService(SmsModuleService.class);
 	try{
 		JSONObject json = new JSONObject(response);
 		final JSONArray smslist = (JSONArray)json.get(OuboundSmsParams.LIST_ID.KEY());
@@ -249,7 +249,7 @@ public static synchronized void revertUnknownSmses(String response){
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 		//TarseelServices sc = TarseelContext.getServices();
-		smsmoduleService sc= Context.getService(smsmoduleService.class);
+		SmsModuleService sc= Context.getService(SmsModuleService.class);
 		try
 		{
 			JSONArray smsList = new JSONArray();
@@ -338,7 +338,7 @@ public static synchronized void revertUnknownSmses(String response){
 	public static synchronized void submitSmsSendAttemptResult(JSONObject request, HttpServletResponse resp) throws IOException, JSONException
 	{
 		//TarseelServices sc = TarseelContext.getServices();
-		smsmoduleService sc = Context.getService(smsmoduleService.class);
+		SmsModuleService sc = Context.getService(SmsModuleService.class);
 		JSONArray list = request.getJSONArray(OuboundSmsParams.LIST_ID.KEY());
 		
 		try{
@@ -402,7 +402,7 @@ public static synchronized void revertUnknownSmses(String response){
 		}
 		
 		//TarseelServices sc = TarseelContext.getServices();
-		smsmoduleService sc = Context.getService(smsmoduleService.class);
+		SmsModuleService sc = Context.getService(SmsModuleService.class);
 		
 		JSONArray list = request.getJSONArray(InboundSmsParams.LIST_ID.KEY());
 		
