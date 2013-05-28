@@ -31,7 +31,7 @@
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.smsmoduleServiceImpl">
+						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.SmsModuleServiceImpl">
 							<property name="daooutbound">
 								<bean class="org.openmrs.module.OpenMRSSMSModule.api.db.hibernate.DAOOutboundMessageImpl">
 									<property name="sessionFactory">
@@ -100,7 +100,7 @@
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.reminderServiceImplementation">
+						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.ReminderServiceImplementation">
 							<property name="r">
 								<bean class="org.openmrs.module.OpenMRSSMSModule.api.db.hibernate.DAOReminderImplementation">
 									<property name="sessionFactory">
@@ -132,7 +132,7 @@
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.deviceServiceImpl">
+						<bean class="org.openmrs.module.OpenMRSSMSModule.api.impl.DeviceServiceImpl">
 							<property name="daodevice">
 								<bean class="org.openmrs.module.OpenMRSSMSModule.api.db.hibernate.DAODeviceImpl">
 									<property name="sessionFactory">
