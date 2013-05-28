@@ -24,7 +24,7 @@
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.OpenMRSSMSModule.api.smsmoduleService</value>
+				<value>org.openmrs.module.OpenMRSSMSModule.api.SmsModuleService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
@@ -93,7 +93,7 @@
 				<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.OpenMRSSMSModule.api.reminderService</value>
+				<value>org.openmrs.module.OpenMRSSMSModule.api.ReminderService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
@@ -125,7 +125,7 @@
 				<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>org.openmrs.module.OpenMRSSMSModule.api.deviceService</value>
+				<value>org.openmrs.module.OpenMRSSMSModule.api.DeviceService</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">
