@@ -3,27 +3,27 @@
 <module configVersion="1.2">
 
 	<!-- Module Properties -->
-	<id>OpenMRSSMSModule</id>
-	<name>OpenMRSSMSModule Module</name>
+	<id>openmrssmsmodule</id>
+	<name>openmrssmsmodule module</name>
 	<version>1.0</version>
-	<package>org.openmrs.module.OpenMRSSMSModule</package>
+	<package>org.openmrs.module.openmrssmsmodule</package>
 	<author>Ali Raza</author>
 	<description>
 		Module for sending sms messages through openmrs
 	</description>
-	<updateURL>https://modules.openmrs.org/modules/download/OpenMRSSMSModule/update.rdf</updateURL>
+	<updateURL>https://modules.openmrs.org/modules/download/openmrssmsmodule/update.rdf</updateURL>
 	<require_version>1.9.3</require_version>
 	<!-- / Module Properties -->
 
 	
 	<!-- Module Activator -->
-	<activator>org.openmrs.module.OpenMRSSMSModule.OpenMRSSMSModuleActivator</activator>
+	<activator>org.openmrs.module.openmrssmsmodule.OpenMRSSMSModuleActivator</activator>
 	
 	
 	<!-- Adds link to admin page -->
 	<extension>
 		<point>org.openmrs.admin.list</point>
-		<class>org.openmrs.module.OpenMRSSMSModule.extension.html.AdminList</class>
+		<class>org.openmrs.module.openmrssmsmodule.extension.html.AdminList</class>
 	</extension>
 	
 	<!-- Maps hibernate file's, if present -->
@@ -37,7 +37,7 @@
 	</packagesWithMappedClasses>
 
 	<!-- Internationalization -->
-	<!-- All message codes should start with OpenMRSSMSModule. -->
+	<!-- All message codes should start with openmrssmsmodule. -->
 	<messages>
 		<lang>en</lang>
 		<file>messages.properties</file>

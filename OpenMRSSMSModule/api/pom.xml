@@ -4,13 +4,13 @@
 
 	<parent>
 		<groupId>org.openmrs.module</groupId>
-		<artifactId>OpenMRSSMSModule</artifactId>
+		<artifactId>openmrssmsmodule</artifactId>
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>OpenMRSSMSModule-api</artifactId>
+	<artifactId>openmrssmsmodule-api</artifactId>
 	<packaging>jar</packaging>
-	<name>OpenMRSSMSModule Module API</name>
+	<name>openmrssmsmodule Module API</name>
 	<description>API project for OpenMRSSMSModule</description>
 
 	<dependencies>

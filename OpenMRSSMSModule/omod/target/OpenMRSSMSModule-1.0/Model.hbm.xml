@@ -7,7 +7,7 @@
 
 <!--
 	<class name="Model"
-		table="OpenMRSSMSModule_Model">
+		table="openmrssmsmodule_Model">
 		<id name="id" type="int" column="id" unsaved-value="0">
 			<generator class="native" />
 		</id>
