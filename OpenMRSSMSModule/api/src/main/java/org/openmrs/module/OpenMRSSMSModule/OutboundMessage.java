@@ -1,6 +1,5 @@
 package org.openmrs.module.OpenMRSSMSModule;
 
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -31,126 +30,117 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public enum OutboundStatus
-	{
+	public enum OutboundStatus {
 		PENDING, SENT, FAILED, MISSED, UNKNOWN
 	}
 
-	public enum OutboundType
-	{
+	public enum OutboundType {
 		SMS, MMS, PDU, UNKNOWN
 	}
 
-	public enum PeriodType{
+	public enum PeriodType {
 		HOUR, DAY, WEEK
 	}
-	
-	public enum Priority{
-		HIGHEST,
-		HIGH,
-		MEDIUM,
-		LOW,
-		LOWEST
+
+	public enum Priority {
+		HIGHEST, HIGH, MEDIUM, LOW, LOWEST
 	}
 
 	@Id
 	@GeneratedValue
 	@Column(name = "outboundId")
-	private long			outboundId;
+	private long outboundId;
 
-	@Column(name = "text" , nullable = false)
-	private String			text;
+	@Column(name = "text", nullable = false)
+	private String text;
 
-	@Column(name = "recipient" , nullable = false)
-	private String			recipient;
+	@Column(name = "recipient", nullable = false)
+	private String recipient;
 
 	@Column(name = "originator")
-	private String			originator;
-	
+	private String originator;
+
 	@Column(name = "patient_id", nullable = false)
-	private String 		patient_id;
+	private String patient_id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dueDate" , nullable = false)
-	private Date			dueDate;
+	@Column(name = "dueDate", nullable = false)
+	private Date dueDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "sentDate")
-	private Date			sentDate;
+	private Date sentDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "systemProcessingStartDate")
-	private Date			systemProcessingStartDate;
+	private Date systemProcessingStartDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "systemProcessingEndDate")
-	private Date			systemProcessingEndDate;
-	
+	private Date systemProcessingEndDate;
+
 	@Column(name = "tries")
 	private Integer tries;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status", nullable = false)
-	private OutboundStatus	status;
+	private OutboundStatus status;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type", nullable = false)
-	private OutboundType	type;
+	private OutboundType type;
 
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "priority", nullable = false)
-	private Priority	priority;
-	
+	private Priority priority;
+
 	@Column(name = "referenceNumber", nullable = false, unique = true)
-	private String	referenceNumber;
-	
+	private String referenceNumber;
+
 	@Column(name = "validityPeriod", nullable = false)
-	private int				validityPeriod;
+	private int validityPeriod;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "periodType", nullable = false)
-	private PeriodType	periodType;
+	private PeriodType periodType;
 
 	@Column(name = "imei")
-	private String			imei;
+	private String imei;
 
 	@Column(name = "description")
-	private String			description;
+	private String description;
 
 	@Column(name = "errorMessage")
-	private String			errorMessage;
+	private String errorMessage;
 
 	@Column(name = "failureCause")
-	private String			failureCause;
+	private String failureCause;
 
 	private Integer projectId;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "projectId", updatable =false, insertable=false)
-	private Project			project;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "projectId", updatable = false, insertable = false)
+	private Project project;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "createdDate", nullable = false)
-	private Date			createdDate;
+	private Date createdDate;
 
 	/**
 	 * @param recipient
 	 *            the recipient to set
 	 */
-	public void setRecipient(String recipient)
-	{
+	public void setRecipient(String recipient) {
 		this.recipient = recipient;
 	}
 
 	/**
 	 * @return the recipient
 	 */
-	public String getRecipient()
-	{
+	public String getRecipient() {
 		return this.recipient;
 	}
-	
+
 	public String getPatient_id() {
 		return patient_id;
 	}
@@ -163,16 +153,14 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param text
 	 *            the text to set
 	 */
-	public void setText(String text)
-	{
+	public void setText(String text) {
 		this.text = text;
 	}
 
 	/**
 	 * @return the text
 	 */
-	public String getText()
-	{
+	public String getText() {
 		return this.text;
 	}
 
@@ -180,16 +168,14 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param dueDate
 	 *            the dueDate to set
 	 */
-	public void setDueDate(Date dueDate)
-	{
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
 	/**
 	 * @return the dueDate
 	 */
-	public Date getDueDate()
-	{
+	public Date getDueDate() {
 		return this.dueDate;
 	}
 
@@ -197,16 +183,14 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param description
 	 *            the description to set
 	 */
-	public void setDescription(String description)
-	{
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
 	/**
 	 * @return the description
 	 */
-	public String getDescription()
-	{
+	public String getDescription() {
 		return this.description;
 	}
 
@@ -214,16 +198,14 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param sentdate
 	 *            the sentdate to set
 	 */
-	public void setSentdate(Date sentdate)
-	{
+	public void setSentdate(Date sentdate) {
 		this.sentDate = sentdate;
 	}
 
 	/**
 	 * @return the sentdate
 	 */
-	public Date getSentdate()
-	{
+	public Date getSentdate() {
 		return this.sentDate;
 	}
 
@@ -231,16 +213,14 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param errormessage
 	 *            the errormessage to set
 	 */
-	public void setErrormessage(String errormessage)
-	{
+	public void setErrormessage(String errormessage) {
 		this.errorMessage = errormessage;
 	}
 
 	/**
 	 * @return the errormessage
 	 */
-	public String getErrormessage()
-	{
+	public String getErrormessage() {
 		return this.errorMessage;
 	}
 
@@ -248,16 +228,14 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param failureCause
 	 *            the failureCause to set
 	 */
-	public void setFailureCause(String failureCause)
-	{
+	public void setFailureCause(String failureCause) {
 		this.failureCause = failureCause;
 	}
 
 	/**
 	 * @return the failureCause
 	 */
-	public String getFailureCause()
-	{
+	public String getFailureCause() {
 		return this.failureCause;
 	}
 
@@ -265,56 +243,46 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	 * @param createdDate
 	 *            the createdDate to set
 	 */
-	public void setCreatedDate(Date createdDate)
-	{
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
 	/**
 	 * @return the createdDate
 	 */
-	public Date getCreatedDate()
-	{
+	public Date getCreatedDate() {
 		return this.createdDate;
 	}
 
-	public void setOriginator(String originator)
-	{
+	public void setOriginator(String originator) {
 		this.originator = originator;
 	}
 
-	public String getOriginator()
-	{
+	public String getOriginator() {
 		return originator;
 	}
 
-	public void setImei(String imei)
-	{
+	public void setImei(String imei) {
 		this.imei = imei;
 	}
 
-	public String getImei()
-	{
+	public String getImei() {
 		return imei;
 	}
 
-	public void setSystemProcessingStartDate(Date systemProcessingStartDate)
-	{
+	public void setSystemProcessingStartDate(Date systemProcessingStartDate) {
 		this.systemProcessingStartDate = systemProcessingStartDate;
 	}
 
-	public Date getSystemProcessingStartDate()
-	{
+	public Date getSystemProcessingStartDate() {
 		return systemProcessingStartDate;
 	}
 
-	public void setSystemProcessingEndDate(Date systemProcessingEndDate)
-	{
+	public void setSystemProcessingEndDate(Date systemProcessingEndDate) {
 		this.systemProcessingEndDate = systemProcessingEndDate;
 	}
 
-	public Date getSystemProcessingEndDate()
-	{
+	public Date getSystemProcessingEndDate() {
 		return systemProcessingEndDate;
 	}
 
@@ -326,83 +294,67 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 		this.tries = tries;
 	}
 
-	public void setOutboundId(long outboundId)
-	{
+	public void setOutboundId(long outboundId) {
 		this.outboundId = outboundId;
 	}
 
-	public long getOutboundId()
-	{
+	public long getOutboundId() {
 		return outboundId;
 	}
 
-	public void setStatus(OutboundStatus status)
-	{
+	public void setStatus(OutboundStatus status) {
 		this.status = status;
 	}
 
-	public OutboundStatus getStatus()
-	{
+	public OutboundStatus getStatus() {
 		return status;
 	}
 
-	public void setType(OutboundType type)
-	{
+	public void setType(OutboundType type) {
 		this.type = type;
 	}
 
-	public OutboundType getType()
-	{
+	public OutboundType getType() {
 		return type;
 	}
 
-	public void setValidityPeriod(int validityPeriod)
-	{
+	public void setValidityPeriod(int validityPeriod) {
 		this.validityPeriod = validityPeriod;
 	}
 
-	public int getValidityPeriod()
-	{
+	public int getValidityPeriod() {
 		return validityPeriod;
 	}
 
-	public void setPeriodType(PeriodType periodType)
-	{
+	public void setPeriodType(PeriodType periodType) {
 		this.periodType = periodType;
 	}
 
-	public PeriodType getPeriodType()
-	{
+	public PeriodType getPeriodType() {
 		return periodType;
 	}
 
-	public Priority getPriority()
-	{
+	public Priority getPriority() {
 		return priority;
 	}
 
-	public void setPriority(Priority priority)
-	{
+	public void setPriority(Priority priority) {
 		this.priority = priority;
 	}
-	
-	public Integer getProjectId()
-	{
+
+	public Integer getProjectId() {
 		return projectId;
 	}
 
-	public void setProjectId(Integer projectId)
-	{
+	public void setProjectId(Integer projectId) {
 		this.projectId = projectId;
 	}
 
-	public String getReferenceNumber()
-	{
+	public String getReferenceNumber() {
 		return referenceNumber;
 	}
 
-	public void setReferenceNumber(String referenceNumber)
-	{
+	public void setReferenceNumber(String referenceNumber) {
 		this.referenceNumber = referenceNumber;
 	}
 
@@ -415,7 +367,7 @@ public class OutboundMessage extends BaseOpenmrsObject implements Serializable {
 	@Override
 	public void setId(Integer arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public Project getProject() {

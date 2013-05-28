@@ -3,10 +3,10 @@ package org.openmrs.module.OpenMRSSMSModule.api.impl;
 import java.util.List;
 
 import org.openmrs.module.OpenMRSSMSModule.Reminder;
-import org.openmrs.module.OpenMRSSMSModule.api.reminderService;
+import org.openmrs.module.OpenMRSSMSModule.api.ReminderService;
 import org.openmrs.module.OpenMRSSMSModule.api.db.DAOReminder;
 
-public class reminderServiceImplementation implements reminderService{
+public class ReminderServiceImplementation implements ReminderService{
 	
 	private DAOReminder r;
 

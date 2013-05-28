@@ -38,7 +38,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @see org.openmrs.api.context.Context
  */
 @Transactional
-public interface smsmoduleService extends OpenmrsService {
+public interface SmsModuleService extends OpenmrsService {
      
 	Number LAST_QUERY_TOTAL_ROW__COUNT();
 String createNewOutboundSms(String recipient, String text, Date duedate, Priority priority, int validityPeriod, String patientid, PeriodType periodType, Integer projectId, String additionalDescription);

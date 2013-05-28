@@ -32,13 +32,13 @@ import org.openmrs.module.OpenMRSSMSModule.api.db.DAOOutBoundMessage;
 import org.openmrs.module.OpenMRSSMSModule.api.impl.TarseelGlobals;
 import org.openmrs.module.OpenMRSSMSModule.OutboundMessage.PeriodType;
 import org.openmrs.module.OpenMRSSMSModule.OutboundMessage.Priority;
-import org.openmrs.module.OpenMRSSMSModule.api.smsmoduleService;
+import org.openmrs.module.OpenMRSSMSModule.api.SmsModuleService;
 
 
 /**
- * It is a default implementation of {@link smsmoduleService}.
+ * It is a default implementation of {@link SmsModuleService}.
  */
-public class smsmoduleServiceImpl extends BaseOpenmrsService implements smsmoduleService {
+public class SmsModuleServiceImpl extends BaseOpenmrsService implements SmsModuleService {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	

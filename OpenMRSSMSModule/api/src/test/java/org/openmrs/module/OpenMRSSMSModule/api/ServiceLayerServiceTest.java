@@ -25,6 +25,6 @@ public class  ServiceLayerServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void shouldSetupContext() {
-		assertNotNull(Context.getService(smsmoduleService.class));
+		assertNotNull(Context.getService(SmsModuleService.class));
 	}
 }

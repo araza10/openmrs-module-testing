@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.openmrs.module.OpenMRSSMSModule.Reminder;
 
-public interface reminderService {
+public interface ReminderService {
 
 	
 	public List<Reminder> getAllReminders();

@@ -10,34 +10,29 @@ import javax.persistence.Table;
 
 import org.openmrs.BaseOpenmrsObject;
 
-
 @Entity
 @Table(name = "reminder")
 public class Reminder extends BaseOpenmrsObject implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Id
 	@GeneratedValue
 	@Column(name = "reminder_id")
-	private int				reminder_id;
-	
+	private int reminder_id;
+
 	@Column(name = "name")
-	private String			name;
-	
-	@Column(name= "description")
-	private String 			description;
-	
+	private String name;
+
+	@Column(name = "description")
+	private String description;
+
 	@Column(name = "category")
-	private String  		category;
-	
+	private String category;
+
 	@Column(name = "text")
-	private String  		text;
-	
-	
-	
+	private String text;
+
 	public String getText() {
 		return text;
 	}
@@ -78,7 +73,6 @@ public class Reminder extends BaseOpenmrsObject implements Serializable {
 		this.category = category;
 	}
 
-	
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
@@ -88,7 +82,7 @@ public class Reminder extends BaseOpenmrsObject implements Serializable {
 	@Override
 	public void setId(Integer id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

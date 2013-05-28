@@ -14,7 +14,7 @@ import org.openmrs.module.OpenMRSSMSModule.Project;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public interface deviceService extends OpenmrsService {
+public interface DeviceService extends OpenmrsService {
 	
 org.openmrs.module.OpenMRSSMSModule.Device findDeviceById(int id);
 	

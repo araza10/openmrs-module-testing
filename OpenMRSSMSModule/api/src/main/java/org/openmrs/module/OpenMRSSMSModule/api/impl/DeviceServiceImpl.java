@@ -12,9 +12,9 @@ import org.openmrs.module.OpenMRSSMSModule.DataException;
 import org.openmrs.module.OpenMRSSMSModule.Device;
 import org.openmrs.module.OpenMRSSMSModule.Device.DeviceStatus;
 import org.openmrs.module.OpenMRSSMSModule.Project;
-import org.openmrs.module.OpenMRSSMSModule.api.deviceService;
+import org.openmrs.module.OpenMRSSMSModule.api.DeviceService;
 
-public class deviceServiceImpl extends BaseOpenmrsService implements deviceService{
+public class DeviceServiceImpl extends BaseOpenmrsService implements DeviceService{
 	
 	private DAODevice daodevice;
 	private DAOProject daoproj;

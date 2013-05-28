@@ -23,7 +23,7 @@ import org.openmrs.module.OpenMRSSMSModule.Project;
 
 @Entity
 @Table(name = "device")
-public class Device extends BaseOpenmrsObject implements Serializable{
+public class Device extends BaseOpenmrsObject implements Serializable {
 
 	/**
 	 * 
@@ -31,216 +31,186 @@ public class Device extends BaseOpenmrsObject implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	public enum DeviceStatus {
-		ACTIVE , INACTIVE , CRASHED , DISCARDED , WAITING
+		ACTIVE, INACTIVE, CRASHED, DISCARDED, WAITING
 	}
 
 	@Id
 	@GeneratedValue
 	@Column(name = "deviceId")
-	private int				deviceId;
+	private int deviceId;
 
 	@Column(name = "deviceName")
-	private String			deviceName;
+	private String deviceName;
 
 	@Column(name = "imei")
-	private String			imei;
+	private String imei;
 
 	@Column(name = "description")
-	private String			description;
+	private String description;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "projectId")
 	@Basic(fetch = FetchType.EAGER)
-	private Project			project;
+	private Project project;
 
 	@Column(name = "sim")
-	private String			sim;
-	
-	private String			commport;
-	
-	private String			commportCommand;
+	private String sim;
+
+	private String commport;
+
+	private String commportCommand;
 
 	@Column(name = "pin")
-	private String			pin;
+	private String pin;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
-	private DeviceStatus	status;
+	private DeviceStatus status;
 
 	@Column(name = "error")
-	private String			error;
+	private String error;
 
 	@Column(name = "addedByUserId")
-	private String			addedByUserId;
+	private String addedByUserId;
 
 	@Column(name = "addedByUsername")
-	private String			addedByUsername;
+	private String addedByUsername;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dateAdded")
-	private Date			dateAdded;
+	private Date dateAdded;
 
 	@Column(name = "editedByUserId")
-	private String			editedByUserId;
+	private String editedByUserId;
 
 	@Column(name = "editedByUsername")
-	private String			editedByUsername;
+	private String editedByUsername;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dateEdited")
-	private Date			dateEdited;
+	private Date dateEdited;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "lastConnectDate")
-	private Date			lastConnectDate;
+	private Date lastConnectDate;
 
-	public int getDeviceId()
-	{
+	public int getDeviceId() {
 		return deviceId;
 	}
-	
-	public void setDeviceId(int deviceId)
-	{
+
+	public void setDeviceId(int deviceId) {
 		this.deviceId = deviceId;
 	}
-	
-	public String getDeviceName()
-	{
+
+	public String getDeviceName() {
 		return deviceName;
 	}
-	
-	public void setDeviceName(String deviceName)
-	{
+
+	public void setDeviceName(String deviceName) {
 		this.deviceName = deviceName;
 	}
-	
-	public String getImei()
-	{
+
+	public String getImei() {
 		return imei;
 	}
-	
-	public void setImei(String imei)
-	{
+
+	public void setImei(String imei) {
 		this.imei = imei;
 	}
-	
-	public String getDescription()
-	{
+
+	public String getDescription() {
 		return description;
 	}
-	
-	public void setDescription(String description)
-	{
+
+	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public Project getProject()
-	{
+
+	public Project getProject() {
 		return project;
 	}
-	
-	public void setProject(Project project)
-	{
+
+	public void setProject(Project project) {
 		this.project = project;
 	}
-	
-	public String getPin()
-	{
+
+	public String getPin() {
 		return pin;
 	}
-	
-	public void setPin(String pin)
-	{
+
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
-	
-	public String getError()
-	{
+
+	public String getError() {
 		return error;
 	}
-	
-	public void setError(String error)
-	{
+
+	public void setError(String error) {
 		this.error = error;
 	}
-	
-	public String getAddedByUserId()
-	{
+
+	public String getAddedByUserId() {
 		return addedByUserId;
 	}
-	
-	public void setAddedByUserId(String addedByUserId)
-	{
+
+	public void setAddedByUserId(String addedByUserId) {
 		this.addedByUserId = addedByUserId;
 	}
-	
-	public String getAddedByUsername()
-	{
+
+	public String getAddedByUsername() {
 		return addedByUsername;
 	}
-	
-	public void setAddedByUsername(String addedByUsername)
-	{
+
+	public void setAddedByUsername(String addedByUsername) {
 		this.addedByUsername = addedByUsername;
 	}
 
-	public void setDateAdded(Date dateAdded)
-	{
+	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
 
-	public Date getDateAdded()
-	{
+	public Date getDateAdded() {
 		return dateAdded;
 	}
 
-	public void setEditedByUserId(String editedByUserId)
-	{
+	public void setEditedByUserId(String editedByUserId) {
 		this.editedByUserId = editedByUserId;
 	}
 
-	public String getEditedByUserId()
-	{
+	public String getEditedByUserId() {
 		return editedByUserId;
 	}
 
-	public void setEditedByUsername(String editedByUsername)
-	{
+	public void setEditedByUsername(String editedByUsername) {
 		this.editedByUsername = editedByUsername;
 	}
 
-	public String getEditedByUsername()
-	{
+	public String getEditedByUsername() {
 		return editedByUsername;
 	}
 
-	public void setDateEdited(Date dateEdited)
-	{
+	public void setDateEdited(Date dateEdited) {
 		this.dateEdited = dateEdited;
 	}
 
-	public Date getDateEdited()
-	{
+	public Date getDateEdited() {
 		return dateEdited;
 	}
 
-	public void setLastConnectDate(Date lastConnectDate)
-	{
+	public void setLastConnectDate(Date lastConnectDate) {
 		this.lastConnectDate = lastConnectDate;
 	}
 
-	public Date getLastConnectDate()
-	{
+	public Date getLastConnectDate() {
 		return lastConnectDate;
 	}
 
-	public void setSim(String sim)
-	{
+	public void setSim(String sim) {
 		this.sim = sim;
 	}
 
-	public String getSim()
-	{
+	public String getSim() {
 		return sim;
 	}
 
@@ -260,13 +230,11 @@ public class Device extends BaseOpenmrsObject implements Serializable{
 		this.commportCommand = commportCommand;
 	}
 
-	public void setStatus(DeviceStatus status)
-	{
+	public void setStatus(DeviceStatus status) {
 		this.status = status;
 	}
 
-	public DeviceStatus getStatus()
-	{
+	public DeviceStatus getStatus() {
 		return status;
 	}
 
@@ -279,6 +247,6 @@ public class Device extends BaseOpenmrsObject implements Serializable{
 	@Override
 	public void setId(Integer id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

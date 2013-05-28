@@ -12,7 +12,7 @@ import org.openmrs.BaseOpenmrsObject;
 
 @Entity
 @Table(name = "project")
-public class Project extends BaseOpenmrsObject implements Serializable{
+public class Project extends BaseOpenmrsObject implements Serializable {
 
 	/**
 	 * 
@@ -22,41 +22,35 @@ public class Project extends BaseOpenmrsObject implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name = "projectId")
-	private int		projectId;
+	private int projectId;
 
 	@Column(name = "name", unique = true)
-	private String	name;
+	private String name;
 
 	@Column(name = "description")
-	private String	description;
+	private String description;
 
-	public void setProjectId(int projectId)
-	{
+	public void setProjectId(int projectId) {
 		this.projectId = projectId;
 	}
 
-	public int getProjectId()
-	{
+	public int getProjectId() {
 		return projectId;
 	}
 
-	public void setName(String name)
-	{
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
-	public void setDescription(String description)
-	{
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public String getDescription()
-	{
+	public String getDescription() {
 		return description;
 	}
 
@@ -69,7 +63,7 @@ public class Project extends BaseOpenmrsObject implements Serializable{
 	@Override
 	public void setId(Integer id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
